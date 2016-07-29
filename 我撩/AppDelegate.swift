@@ -8,6 +8,9 @@
 
 import UIKit
 
+let DEFAULTS = UserDefaults.standard
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -44,19 +47,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    
     //MARK:- RongCloud
+    
     func login() {
-        RCIM.shared().connect(withToken: tokenOfA,
-        success: { (userId) -> Void in
-            print("登陆成功。当前登录的用户ID：\(userId)")
-        }, error: { (status) -> Void in
-            print("登陆的错误码为:\(status.rawValue)")
-        }, tokenIncorrect: {
-                //token过期或者不正确。
-                //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-                //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-                print("token错误")
-        })
+        let userToken = DEFAULTS.object(forKey: "userToken") as? String
+        let userId = DEFAULTS.object(forKey: "userId") as? String
+        let userName = DEFAULTS.object(forKey: "userName") as? String
+        let userPassword = DEFAULTS.object(forKey: "userPassword") as? String
+        let userNickName = DEFAULTS.object(forKey: "userNickName") as? String
+        let userPortraitUri = DEFAULTS.object(forKey: "userPortraitUri") as? String
+        
+        if (false) {
+            let currentUserInfo = RCUserInfo(userId: userId, name: userNickName ?? userName, portrait: userPortraitUri)
+            RCIM.shared().currentUserInfo = currentUserInfo
+            RCIM.shared().connect(withToken: userToken ?? tokenOfA, success: { (userId) -> Void in
+                print("登陆成功。当前登录的用户ID：\(userId)")
+                }, error: { (status) -> Void in
+                    print("登陆的错误码为:\(status.rawValue)")
+                }, tokenIncorrect: {
+                    //token过期或者不正确。
+                    //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+                    //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+                    print("token错误")
+            })
+        }else{
+            
+            let LoginSB = UIStoryboard.init(name: "Login", bundle: Bundle.main)
+            self.window?.rootViewController = LoginSB.instantiateInitialViewController()
+        }
+
+        
+        
     }
 
 

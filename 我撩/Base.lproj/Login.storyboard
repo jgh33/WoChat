@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6Rl-2W-82n">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LoginVC-->
+        <scene sceneID="Xai-0f-T1w">
+            <objects>
+                <viewController id="eqm-Pa-rmA" customClass="LoginVC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8WP-Cm-YBH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pxb-Mc-lOw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U1H-fd-3Kv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Fds-fP-ixM">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-eH-PxO">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aML-Is-Xgj">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEj-2h-ePx">
+                                        <state key="normal" title="登陆"/>
+                                        <connections>
+                                            <action selector="login" destination="eqm-Pa-rmA" eventType="touchUpInside" id="sZh-YU-Nrh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我撩" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93y-tQ-IQF">
+                                <frame key="frameInset" minX="106" minY="92" width="107" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.1764705882" green="0.72549019609999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btH-zE-jrz">
+                                <state key="normal" title="找回密码"/>
+                                <connections>
+                                    <action selector="foundPassword" destination="eqm-Pa-rmA" eventType="touchUpInside" id="HK7-zp-NpL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPT-gg-tZw">
+                                <state key="normal" title="新用户"/>
+                                <connections>
+                                    <action selector="sign" destination="eqm-Pa-rmA" eventType="touchUpInside" id="KHX-vf-rpe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pxb-Mc-lOw" firstAttribute="top" secondItem="btH-zE-jrz" secondAttribute="bottom" constant="8" symbolic="YES" id="DE0-We-Gv4"/>
+                            <constraint firstAttribute="trailing" secondItem="Fds-fP-ixM" secondAttribute="trailing" constant="20" id="OIW-mV-6k6"/>
+                            <constraint firstItem="Fds-fP-ixM" firstAttribute="leading" secondItem="U1H-fd-3Kv" secondAttribute="leading" constant="20" id="Q3v-3D-Mvf"/>
+                            <constraint firstItem="Pxb-Mc-lOw" firstAttribute="top" secondItem="JPT-gg-tZw" secondAttribute="bottom" constant="8" id="S0P-Kz-lL9"/>
+                            <constraint firstItem="Pxb-Mc-lOw" firstAttribute="top" secondItem="Fds-fP-ixM" secondAttribute="bottom" constant="250" id="oIx-Vp-FV0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JPT-gg-tZw" secondAttribute="trailing" id="pBQ-OS-prS"/>
+                            <constraint firstItem="btH-zE-jrz" firstAttribute="leading" secondItem="U1H-fd-3Kv" secondAttribute="leadingMargin" id="yDQ-NV-Dw9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gfe-SQ-K29"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="loginBTN" destination="yEj-2h-ePx" id="dq7-DE-DLg"/>
+                        <outlet property="passwordTF" destination="aML-Is-Xgj" id="P4H-XC-GoN"/>
+                        <outlet property="userIdTF" destination="6zd-eH-PxO" id="xIO-oY-vlA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ikR-8Z-pf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="829"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bqI-0V-SH7">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNaviVC" automaticallyAdjustsScrollViewInsets="NO" id="6Rl-2W-82n" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZbR-xE-NPG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eqm-Pa-rmA" kind="relationship" relationship="rootViewController" id="66l-uR-kgm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gm-e2-lDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="830"/>
+        </scene>
+    </scenes>
+</document>

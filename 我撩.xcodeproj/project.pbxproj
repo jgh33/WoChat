@@ -14,6 +14,10 @@
 		D566EFDF1D4B635000B1D100 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D566EFDD1D4B635000B1D100 /* LaunchScreen.storyboard */; };
 		D566EFEB1D4B6DDF00B1D100 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFEA1D4B6DDF00B1D100 /* FirstVC.swift */; };
 		D566EFED1D4B723F00B1D100 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFEC1D4B723E00B1D100 /* ChatVC.swift */; };
+		D566EFEF1D4B8DAE00B1D100 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFEE1D4B8DAE00B1D100 /* LoginVC.swift */; };
+		D566EFF11D4B9FB900B1D100 /* FoundPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */; };
+		D566EFF31D4B9FE400B1D100 /* SignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFF21D4B9FE400B1D100 /* SignVC.swift */; };
+		D566EFF61D4BA1A900B1D100 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D566EFF41D4BA1A900B1D100 /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		D566EFE61D4B65F000B1D100 /* 我撩-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "我撩-Bridging-Header.h"; sourceTree = "<group>"; };
 		D566EFEA1D4B6DDF00B1D100 /* FirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		D566EFEC1D4B723E00B1D100 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		D566EFEE1D4B8DAE00B1D100 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundPasswordVC.swift; sourceTree = "<group>"; };
+		D566EFF21D4B9FE400B1D100 /* SignVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignVC.swift; sourceTree = "<group>"; };
+		D566EFF51D4BA1A900B1D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +92,11 @@
 				D566EFD41D4B634F00B1D100 /* AppDelegate.swift */,
 				D566EFEA1D4B6DDF00B1D100 /* FirstVC.swift */,
 				D566EFEC1D4B723E00B1D100 /* ChatVC.swift */,
+				D566EFEE1D4B8DAE00B1D100 /* LoginVC.swift */,
+				D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */,
+				D566EFF21D4B9FE400B1D100 /* SignVC.swift */,
 				D566EFD81D4B634F00B1D100 /* Main.storyboard */,
+				D566EFF41D4BA1A900B1D100 /* Login.storyboard */,
 				D566EFDB1D4B635000B1D100 /* Assets.xcassets */,
 				D566EFDD1D4B635000B1D100 /* LaunchScreen.storyboard */,
 				D566EFE01D4B635000B1D100 /* Info.plist */,
@@ -158,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D566EFF61D4BA1A900B1D100 /* Login.storyboard in Resources */,
 				D566EFDF1D4B635000B1D100 /* LaunchScreen.storyboard in Resources */,
 				D566EFDC1D4B635000B1D100 /* Assets.xcassets in Resources */,
 				D566EFDA1D4B634F00B1D100 /* Main.storyboard in Resources */,
@@ -220,7 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D566EFED1D4B723F00B1D100 /* ChatVC.swift in Sources */,
+				D566EFF31D4B9FE400B1D100 /* SignVC.swift in Sources */,
 				D566EFEB1D4B6DDF00B1D100 /* FirstVC.swift in Sources */,
+				D566EFF11D4B9FB900B1D100 /* FoundPasswordVC.swift in Sources */,
+				D566EFEF1D4B8DAE00B1D100 /* LoginVC.swift in Sources */,
 				D566EFD51D4B634F00B1D100 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +258,14 @@
 				D566EFDE1D4B635000B1D100 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D566EFF41D4BA1A900B1D100 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D566EFF51D4BA1A900B1D100 /* Base */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
