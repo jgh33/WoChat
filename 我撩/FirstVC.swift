@@ -1,0 +1,86 @@
+//
+//  FirstVC.swift
+//  我撩
+//
+//  Created by jgh on 16/7/29.
+//  Copyright © 2016年 jgh. All rights reserved.
+//
+
+import UIKit
+
+class FirstVC: RCConversationListViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        //设置需要显示哪些类型的会话
+        self.setDisplayConversationTypes([RCConversationType.ConversationType_PRIVATE.rawValue,
+                                          RCConversationType.ConversationType_DISCUSSION.rawValue,
+                                          RCConversationType.ConversationType_CHATROOM.rawValue,
+                                          RCConversationType.ConversationType_GROUP.rawValue,
+                                          RCConversationType.ConversationType_APPSERVICE.rawValue,
+                                          RCConversationType.ConversationType_SYSTEM.rawValue])
+        //设置需要将哪些类型的会话在会话列表中聚合显示
+        self.setCollectionConversationType([RCConversationType.ConversationType_DISCUSSION.rawValue,
+                                            RCConversationType.ConversationType_GROUP.rawValue])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - 点击事件
+    /**
+     点击会话列表中Cell的回调
+     
+     @param conversationModelType   当前点击的会话的Model类型
+     @param model                   当前点击的会话的Model
+     @param indexPath               当前会话在列表数据源中的索引值
+     
+     @discussion 您需要重写此点击事件，跳转到指定会话的聊天界面。
+     如果点击聚合Cell进入具体的子会话列表，在跳转时，需要将isEnteredToCollectionViewController设置为YES。
+     */
+    override func onSelectedTableRow(_ conversationModelType: RCConversationModelType, conversationModel model: RCConversationModel!, at indexPath: IndexPath!) {
+        let chat = ChatVC()
+        chat.conversationType = model.conversationType
+        chat.targetId = model.targetId
+        chat.title = model.targetId
+        self.navigationController?.pushViewController(chat, animated: true)
+    }
+    /**
+     点击Cell头像的回调
+     
+     @param model   会话Cell的数据模型
+     */
+    override func didTapCellPortrait(_ model: RCConversationModel!) {
+        
+    }
+    
+    /**
+     长按Cell头像的回调
+     
+     @param model   会话Cell的数据模型
+     */
+    override func didLongPressCellPortrait(_ model: RCConversationModel!) {
+        
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
