@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nud-fd-L4y"/>
+                    <navigationItem key="navigationItem" id="nud-fd-L4y">
+                        <barButtonItem key="leftBarButtonItem" title="我撩" id="jN5-4b-lMw">
+                            <color key="tintColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="6bl-tb-e4q">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TBF-NH-xpV">
+                                    <rect key="frame" x="264" y="11" width="40" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="icon_recommend_dish_add"/>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="K61-vi-XFD">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dv7-qA-aRi">
+                                    <rect key="frame" x="216" y="10" width="40" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="icon_navigationItem_search"/>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itO-mI-BzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -28,11 +49,11 @@
         <!--我-->
         <scene sceneID="krN-5j-Sd2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wn8-8j-2Ry" customClass="WLNavigationVC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wn8-8j-2Ry" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="fpb-Hh-Suz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LNM-cJ-q9o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="LNM-cJ-q9o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -46,4 +67,8 @@
             <point key="canvasLocation" x="1386" y="2097"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_navigationItem_search" width="24" height="24"/>
+        <image name="icon_recommend_dish_add" width="21" height="21"/>
+    </resources>
 </document>

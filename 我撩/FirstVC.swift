@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstVC: RCConversationListViewController {
+class FirstVC: RCConversationListViewController, UIPopoverPresentationControllerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +70,8 @@ class FirstVC: RCConversationListViewController {
      */
     override func didLongPressCellPortrait(_ model: RCConversationModel!) {
         
+        model.isTop = !model.isTop
+        
     }
     
 
@@ -82,5 +84,28 @@ class FirstVC: RCConversationListViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - ooNavigation
+    @IBAction func add(_ sender: UIButton) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        vc.popoverPresentationController?.delegate = self
+        vc.popoverPresentationController?.sourceView = sender as UIView
+        vc.popoverPresentationController?.sourceRect = sender.bounds
+        vc.preferredContentSize = CGSize(width: 160, height: 200)
+        
+        self.present(vc, animated: true, completion:nil)
+    }
+
+    @IBAction func search(_ sender: UIButton) {
+    }
+
+    
+    // MARK: - popDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
 
 }
