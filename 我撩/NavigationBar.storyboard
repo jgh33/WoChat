@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Jeq-E0-7RG">
+            <objects>
+                <viewController storyboardIdentifier="PopoverViewController" id="UAP-gs-4Op" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XxZ-at-UAO"/>
+                        <viewControllerLayoutGuide type="bottom" id="B9a-ex-DRZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uvI-8u-WB2">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="171"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SHf-gi-vdL">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2N-QU-7nB">
+                                        <state key="normal" title="发起群聊"/>
+                                        <state key="highlighted" title="发起群聊">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mP6-8X-PSb">
+                                        <state key="normal" title="添加朋友"/>
+                                        <state key="highlighted" title="添加朋友">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGx-hF-bcM">
+                                        <state key="normal" title="扫一扫"/>
+                                        <state key="highlighted" title="扫一扫">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LC0-LD-j9Z">
+                                        <frame key="frameInset" minX="31" minY="104" width="56" height="32"/>
+                                        <state key="normal" title="收付款"/>
+                                        <state key="highlighted" title="收付款">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-kf-Esi">
+                                        <frame key="frameInset" minX="13" minY="138" width="92" height="33"/>
+                                        <state key="normal" title="帮助与反馈"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mP6-8X-PSb" firstAttribute="height" secondItem="iGx-hF-bcM" secondAttribute="height" id="8p8-X0-5TI"/>
+                                    <constraint firstItem="o2N-QU-7nB" firstAttribute="height" secondItem="mP6-8X-PSb" secondAttribute="height" id="JA4-Xr-dhe"/>
+                                    <constraint firstItem="iGx-hF-bcM" firstAttribute="height" secondItem="LC0-LD-j9Z" secondAttribute="height" id="app-8k-ITU"/>
+                                    <constraint firstItem="LC0-LD-j9Z" firstAttribute="height" secondItem="Ami-kf-Esi" secondAttribute="height" id="b4o-xa-xoj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="SHf-gi-vdL" firstAttribute="top" secondItem="XxZ-at-UAO" secondAttribute="bottom" id="Hjb-SZ-fMU"/>
+                            <constraint firstItem="SHf-gi-vdL" firstAttribute="leading" secondItem="uvI-8u-WB2" secondAttribute="leadingMargin" id="IIh-Pq-8du"/>
+                            <constraint firstItem="B9a-ex-DRZ" firstAttribute="top" secondItem="SHf-gi-vdL" secondAttribute="bottom" id="dsd-Ag-V8M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SHf-gi-vdL" secondAttribute="trailing" id="gy6-qw-FwQ"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="150" height="171"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYm-lV-7Id" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503" y="78"/>
+        </scene>
+    </scenes>
+</document>

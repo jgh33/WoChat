@@ -22,6 +22,11 @@
 		D566EFF11D4B9FB900B1D100 /* FoundPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */; };
 		D566EFF31D4B9FE400B1D100 /* SignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D566EFF21D4B9FE400B1D100 /* SignVC.swift */; };
 		D566EFF61D4BA1A900B1D100 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D566EFF41D4BA1A900B1D100 /* Login.storyboard */; };
+		D5A462401D4DE995000EBC81 /* NavigationBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5A4623F1D4DE995000EBC81 /* NavigationBar.storyboard */; };
+		D5A4624A1D4DF949000EBC81 /* Code2DVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A462491D4DF949000EBC81 /* Code2DVC.swift */; };
+		D5A4624C1D4E58EE000EBC81 /* MeTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4624B1D4E58EE000EBC81 /* MeTableVC.swift */; };
+		D5A4624E1D4E6157000EBC81 /* ThirdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4624D1D4E6157000EBC81 /* ThirdTableViewController.swift */; };
+		D5A462501D4E6577000EBC81 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A4624F1D4E6577000EBC81 /* SecondVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,11 @@
 		D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundPasswordVC.swift; sourceTree = "<group>"; };
 		D566EFF21D4B9FE400B1D100 /* SignVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignVC.swift; sourceTree = "<group>"; };
 		D566EFF51D4BA1A900B1D100 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		D5A4623F1D4DE995000EBC81 /* NavigationBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NavigationBar.storyboard; sourceTree = "<group>"; };
+		D5A462491D4DF949000EBC81 /* Code2DVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code2DVC.swift; sourceTree = "<group>"; };
+		D5A4624B1D4E58EE000EBC81 /* MeTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTableVC.swift; sourceTree = "<group>"; };
+		D5A4624D1D4E6157000EBC81 /* ThirdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTableViewController.swift; sourceTree = "<group>"; };
+		D5A4624F1D4E6577000EBC81 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,23 +108,76 @@
 			isa = PBXGroup;
 			children = (
 				D566EFD41D4B634F00B1D100 /* AppDelegate.swift */,
-				D566EFEA1D4B6DDF00B1D100 /* FirstVC.swift */,
-				D566EFEC1D4B723E00B1D100 /* ChatVC.swift */,
-				D566EFEE1D4B8DAE00B1D100 /* LoginVC.swift */,
-				D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */,
-				D566EFF21D4B9FE400B1D100 /* SignVC.swift */,
 				D566EFD81D4B634F00B1D100 /* Main.storyboard */,
-				D55B5CDC1D4C562A00F06D41 /* Fourth.storyboard */,
-				D55B5CDA1D4C560D00F06D41 /* Third.storyboard */,
-				D55B5CD71D4C55E400F06D41 /* Second.storyboard */,
-				D55B5CD51D4C55C000F06D41 /* First.storyboard */,
-				D566EFF41D4BA1A900B1D100 /* Login.storyboard */,
-				D566EFDB1D4B635000B1D100 /* Assets.xcassets */,
+				D5A462411D4DEE7D000EBC81 /* First */,
+				D5A462441D4DEF2E000EBC81 /* Second */,
+				D5A462421D4DEEAB000EBC81 /* Third */,
+				D5A462451D4DEF3E000EBC81 /* Fourth */,
+				D5A462431D4DEEC6000EBC81 /* Login */,
+				D5A462461D4DEF98000EBC81 /* NavigationBar */,
 				D566EFDD1D4B635000B1D100 /* LaunchScreen.storyboard */,
+				D566EFDB1D4B635000B1D100 /* Assets.xcassets */,
 				D566EFE01D4B635000B1D100 /* Info.plist */,
 				D566EFE61D4B65F000B1D100 /* 我撩-Bridging-Header.h */,
 			);
 			path = "我撩";
+			sourceTree = "<group>";
+		};
+		D5A462411D4DEE7D000EBC81 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				D566EFEC1D4B723E00B1D100 /* ChatVC.swift */,
+				D566EFEA1D4B6DDF00B1D100 /* FirstVC.swift */,
+				D55B5CD51D4C55C000F06D41 /* First.storyboard */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+		D5A462421D4DEEAB000EBC81 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				D55B5CDA1D4C560D00F06D41 /* Third.storyboard */,
+				D5A4624D1D4E6157000EBC81 /* ThirdTableViewController.swift */,
+			);
+			name = Third;
+			sourceTree = "<group>";
+		};
+		D5A462431D4DEEC6000EBC81 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D566EFF01D4B9FB900B1D100 /* FoundPasswordVC.swift */,
+				D566EFF21D4B9FE400B1D100 /* SignVC.swift */,
+				D566EFEE1D4B8DAE00B1D100 /* LoginVC.swift */,
+				D566EFF41D4BA1A900B1D100 /* Login.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		D5A462441D4DEF2E000EBC81 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				D55B5CD71D4C55E400F06D41 /* Second.storyboard */,
+				D5A4624F1D4E6577000EBC81 /* SecondVC.swift */,
+			);
+			name = Second;
+			sourceTree = "<group>";
+		};
+		D5A462451D4DEF3E000EBC81 /* Fourth */ = {
+			isa = PBXGroup;
+			children = (
+				D55B5CDC1D4C562A00F06D41 /* Fourth.storyboard */,
+				D5A4624B1D4E58EE000EBC81 /* MeTableVC.swift */,
+				D5A462491D4DF949000EBC81 /* Code2DVC.swift */,
+			);
+			name = Fourth;
+			sourceTree = "<group>";
+		};
+		D5A462461D4DEF98000EBC81 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				D5A4623F1D4DE995000EBC81 /* NavigationBar.storyboard */,
+			);
+			name = NavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +247,7 @@
 			files = (
 				D55B5CDE1D4C562A00F06D41 /* Fourth.storyboard in Resources */,
 				D55B5CD91D4C55E400F06D41 /* Second.storyboard in Resources */,
+				D5A462401D4DE995000EBC81 /* NavigationBar.storyboard in Resources */,
 				D566EFF61D4BA1A900B1D100 /* Login.storyboard in Resources */,
 				D566EFDF1D4B635000B1D100 /* LaunchScreen.storyboard in Resources */,
 				D55B5CDB1D4C560D00F06D41 /* Third.storyboard in Resources */,
@@ -251,9 +315,13 @@
 				D566EFED1D4B723F00B1D100 /* ChatVC.swift in Sources */,
 				D566EFF31D4B9FE400B1D100 /* SignVC.swift in Sources */,
 				D566EFEB1D4B6DDF00B1D100 /* FirstVC.swift in Sources */,
+				D5A4624A1D4DF949000EBC81 /* Code2DVC.swift in Sources */,
+				D5A4624C1D4E58EE000EBC81 /* MeTableVC.swift in Sources */,
 				D566EFF11D4B9FB900B1D100 /* FoundPasswordVC.swift in Sources */,
+				D5A462501D4E6577000EBC81 /* SecondVC.swift in Sources */,
 				D566EFEF1D4B8DAE00B1D100 /* LoginVC.swift in Sources */,
 				D566EFD51D4B634F00B1D100 /* AppDelegate.swift in Sources */,
+				D5A4624E1D4E6157000EBC81 /* ThirdTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

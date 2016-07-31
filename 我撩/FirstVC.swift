@@ -14,6 +14,9 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.cellBackgroundColor = UIColor.white()
+        self.topCellBackgroundColor = #colorLiteral(red: 0.7602152824, green: 0.7601925135, blue: 0.7602053881, alpha: 1)
         //设置需要显示哪些类型的会话
         self.setDisplayConversationTypes([RCConversationType.ConversationType_PRIVATE.rawValue,
                                           RCConversationType.ConversationType_DISCUSSION.rawValue,
@@ -36,6 +39,14 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
         // Dispose of any resources that can be recreated.
     }
     
+    func makeConsesion(model: RCConversationModel!) {
+        let chat = ChatVC()
+        chat.conversationType = model.conversationType
+        chat.targetId = model.targetId
+        chat.title = model.targetId
+        self.navigationController?.pushViewController(chat, animated: true)
+    }
+    
     // MARK: - 点击事件
     /**
      点击会话列表中Cell的回调
@@ -48,11 +59,7 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
      如果点击聚合Cell进入具体的子会话列表，在跳转时，需要将isEnteredToCollectionViewController设置为YES。
      */
     override func onSelectedTableRow(_ conversationModelType: RCConversationModelType, conversationModel model: RCConversationModel!, at indexPath: IndexPath!) {
-        let chat = ChatVC()
-        chat.conversationType = model.conversationType
-        chat.targetId = model.targetId
-        chat.title = model.targetId
-        self.navigationController?.pushViewController(chat, animated: true)
+        self.makeConsesion(model: model)
     }
     /**
      点击Cell头像的回调
@@ -60,7 +67,7 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
      @param model   会话Cell的数据模型
      */
     override func didTapCellPortrait(_ model: RCConversationModel!) {
-        
+        self.makeConsesion(model: model)
     }
     
     /**
@@ -69,8 +76,17 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
      @param model   会话Cell的数据模型
      */
     override func didLongPressCellPortrait(_ model: RCConversationModel!) {
+        print(model.isTop)
+        if model.isTop == true {
+            model.isTop = false
+        }else{
+            model.isTop = true
+        }
+        print(model.isTop)
         
-        model.isTop = !model.isTop
+        RCIMClient.shared().setConversationToTop(model.conversationType, targetId: model.targetId, isTop: model.isTop)
+        self.refreshConversationTableViewIfNeeded()
+        
         
     }
     
@@ -87,7 +103,7 @@ class FirstVC: RCConversationListViewController, UIPopoverPresentationController
     
     // MARK: - ooNavigation
     @IBAction func add(_ sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard : UIStoryboard = UIStoryboard(name: "NavigationBar", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
         vc.modalPresentationStyle = UIModalPresentationStyle.popover
         vc.popoverPresentationController?.delegate = self

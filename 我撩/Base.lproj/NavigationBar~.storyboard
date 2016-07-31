@@ -56,6 +56,34 @@
             </objects>
             <point key="canvasLocation" x="1200" y="1032"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="hp8-mo-wUe">
+            <objects>
+                <viewController storyboardIdentifier="PopoverViewController" id="zul-jJ-kPl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RDq-kb-9iE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ubv-fe-nBa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3DH-u5-2fK">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-dd-9b8">
+                                <frame key="frameInset" minX="63" minY="85" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="haha"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="160" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bTp-wb-d5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1710" y="859"/>
+        </scene>
         <!--Fourth-->
         <scene sceneID="wcT-kp-DMR">
             <objects>
@@ -65,14 +93,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Koy-mY-TXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1208" y="1193"/>
-        </scene>
-        <!--PopoverViewController-->
-        <scene sceneID="r4a-Iz-NG7">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="PopoverViewController" storyboardName="NavigationBar" referencedIdentifier="PopoverViewController" id="Kqb-Pq-1u0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fLJ-ja-DfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1710" y="859"/>
         </scene>
     </scenes>
 </document>

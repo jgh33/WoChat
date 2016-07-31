@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--SecondVC-->
         <scene sceneID="bZu-YQ-YXh">
             <objects>
-                <viewController id="OvI-eR-Uzh" sceneMemberID="viewController">
+                <viewController id="OvI-eR-Uzh" customClass="SecondVC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RWw-Vy-l4f"/>
                         <viewControllerLayoutGuide type="bottom" id="GnF-Fh-KxO"/>
@@ -18,7 +18,22 @@
                     <view key="view" contentMode="scaleToFill" id="qlG-Uy-wZM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="quB-co-WBt">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OvI-eR-Uzh" id="Gdj-6U-Jiy"/>
+                                    <outlet property="delegate" destination="OvI-eR-Uzh" id="pJs-r7-sJr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="quB-co-WBt" firstAttribute="top" secondItem="RWw-Vy-l4f" secondAttribute="bottom" id="398-Af-5Pf"/>
+                            <constraint firstItem="quB-co-WBt" firstAttribute="bottom" secondItem="GnF-Fh-KxO" secondAttribute="top" id="9iL-e9-yJT"/>
+                            <constraint firstAttribute="trailing" secondItem="quB-co-WBt" secondAttribute="trailing" id="Fwd-vd-M7L"/>
+                            <constraint firstItem="quB-co-WBt" firstAttribute="leading" secondItem="qlG-Uy-wZM" secondAttribute="leading" id="PhF-6O-Quk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QqY-2M-Dwz">
                         <nil key="title"/>
@@ -31,6 +46,9 @@
                                     <rect key="frame" x="264" y="11" width="40" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="icon_recommend_dish_add"/>
+                                    <connections>
+                                        <action selector="add:" destination="OvI-eR-Uzh" eventType="touchUpInside" id="aLh-o4-6HV"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" id="0tX-A6-dLQ">
@@ -42,10 +60,13 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableV" destination="quB-co-WBt" id="s1O-yK-Vkv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRd-Tf-DsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111" y="786"/>
+            <point key="canvasLocation" x="2109.375" y="785.91549295774644"/>
         </scene>
         <!--通讯录-->
         <scene sceneID="j19-Uf-62M">
