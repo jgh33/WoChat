@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
     var loginFailureTimes:Int = 0
     var loginUserName = ""
     var loginUserId = ""
@@ -31,8 +31,19 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+    
+    @IBAction func idTF_end(_ sender: UITextField) {
+        self.passwordTF.becomeFirstResponder()
+    }
+    
+    @IBAction func passTF_end(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        self.login()
+    }
     
     @IBAction func login() {
+        print("login login")
     }
     
     @IBAction func foundPassword() {
@@ -41,6 +52,10 @@ class LoginVC: UIViewController {
     @IBAction func sign() {
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 
     /*

@@ -23,11 +23,17 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-eH-PxO">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="idTF_end:" destination="eqm-Pa-rmA" eventType="editingDidEndOnExit" id="wCD-Ua-L4s"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aML-Is-Xgj">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="passTF_end:" destination="eqm-Pa-rmA" eventType="editingDidEndOnExit" id="ZyI-CC-AFA"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEj-2h-ePx">
                                         <state key="normal" title="登陆"/>
@@ -105,13 +111,16 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="unS-9J-wTY">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFT-6E-kYO">
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M4S-00-gMO">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="CAPTCHATF_end:" destination="cte-Hy-T7p" eventType="editingDidEndOnExit" id="gnf-3C-ylw"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-ho-MZh">
                                                 <state key="normal" title="发送验证码"/>
@@ -120,10 +129,16 @@
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nKB-nq-GaP">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="newPasswordTF_end:" destination="cte-Hy-T7p" eventType="editingDidEndOnExit" id="NqP-bR-wXF"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEC-oI-ubv">
                                         <state key="normal" title="确定"/>
+                                        <connections>
+                                            <action selector="passwordDone" destination="cte-Hy-T7p" eventType="touchUpInside" id="tJL-oD-Iu7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -154,6 +169,11 @@
                             <constraint firstAttribute="bottom" secondItem="Kg9-z7-mE5" secondAttribute="bottom" constant="20" symbolic="YES" id="kyU-KA-Hk3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CAPTCHATF" destination="M4S-00-gMO" id="yma-gc-I9y"/>
+                        <outlet property="idTF" destination="unS-9J-wTY" id="s78-Gz-I0b"/>
+                        <outlet property="newPasswordTF" destination="nKB-nq-GaP" id="aQP-d7-p1Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SV7-b4-sfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +200,10 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="昵称" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="wXV-eF-FVQ">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="nickTF_end:" destination="XVE-4v-kOe" eventType="editingDidEndOnExit" id="spm-sT-IQH"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gPv-SB-LWL">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -190,7 +213,10 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="短信验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-he-Rtj">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="CAPTCHATF_end:" destination="XVE-4v-kOe" eventType="editingDidEndOnExit" id="C6W-yf-i7i"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi2-JQ-Mpq">
                                                 <constraints>
@@ -202,10 +228,16 @@
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-z5-v3y">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="passwordTF_end:" destination="XVE-4v-kOe" eventType="editingDidEndOnExit" id="QsL-UV-brN"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPS-kP-Juf">
                                         <state key="normal" title="注册"/>
+                                        <connections>
+                                            <action selector="sign" destination="XVE-4v-kOe" eventType="touchUpInside" id="llM-Zz-Won"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -236,6 +268,12 @@
                             <constraint firstItem="L4b-7p-67s" firstAttribute="leading" secondItem="cHJ-Nd-RA5" secondAttribute="leadingMargin" id="xbv-SY-97u"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CAPTCHATF" destination="eg4-he-Rtj" id="C11-vO-BBo"/>
+                        <outlet property="idTF" destination="gPv-SB-LWL" id="PFE-Rh-rxq"/>
+                        <outlet property="nicknameTF" destination="wXV-eF-FVQ" id="9XA-6O-z6Y"/>
+                        <outlet property="passwordTF" destination="bSe-z5-v3y" id="3Fb-cB-b8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3XY-nR-oam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,8 +299,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hru-Rx-GSt"/>
         <segue reference="G54-Pi-I2p"/>
-        <segue reference="T8g-7S-GNj"/>
+        <segue reference="8YR-gh-T4u"/>
+        <segue reference="HKh-gG-mcH"/>
     </inferredMetricsTieBreakers>
 </document>
