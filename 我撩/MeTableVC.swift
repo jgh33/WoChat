@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeTableVC: UITableViewController {
+class MeTableVC: UITableViewController,UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -30,9 +30,7 @@ class MeTableVC: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func add(_ sender: UIButton) {
-        self.adds(sender: sender)
-    }
+
     
     
     //二维码名片
@@ -46,6 +44,10 @@ class MeTableVC: UITableViewController {
         vc.preferredContentSize = CGSize(width: 240, height: 300)
         self.present(vc, animated: true, completion:nil)
 
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

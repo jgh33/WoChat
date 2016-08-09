@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,31 +21,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="fXr-kW-gRX">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="我撩" id="dgf-Zu-AHj">
-                            <color key="tintColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="kEZ-CQ-7fQ">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bFm-S5-fQX">
-                                    <rect key="frame" x="264" y="11" width="40" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_recommend_dish_add"/>
-                                    <connections>
-                                        <action selector="add:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hd6-wh-fuD"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="iYS-ir-O41">
-                                <button key="customView" opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jky-nm-u0T">
-                                    <rect key="frame" x="216" y="10" width="40" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_navigationItem_search"/>
-                                    <connections>
-                                        <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yic-LS-BVs"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,11 +30,11 @@
         <!--会话-->
         <scene sceneID="85R-95-bt9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NL5-6s-cXL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NL5-6s-cXL" customClass="WLNaviC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="会话" id="KyM-6B-CTG"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="6Jg-vj-dRd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6Jg-vj-dRd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -74,8 +48,4 @@
             <point key="canvasLocation" x="1385.625" y="123.59154929577466"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_navigationItem_search" width="24" height="24"/>
-        <image name="icon_recommend_dish_add" width="21" height="21"/>
-    </resources>
 </document>

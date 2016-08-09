@@ -24,12 +24,6 @@ class SecondVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
 
-    @IBAction func add(_ sender: UIButton) {
-        self.adds(sender: sender)
-    }
-    
-    
-
     
     
     

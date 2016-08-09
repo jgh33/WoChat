@@ -59,8 +59,27 @@
                                     <constraint firstItem="LC0-LD-j9Z" firstAttribute="height" secondItem="Ami-kf-Esi" secondAttribute="height" id="b4o-xa-xoj"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpI-Bv-Bht">
+                                <frame key="frameInset" minX="15" minY="34" width="120" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqv-u3-36M">
+                                <frame key="frameInset" minX="15" minY="68" width="120" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeK-1h-h8Z">
+                                <frame key="frameInset" minX="15" minY="102" width="120" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4p3-OD-BaX">
+                                <frame key="frameInset" minX="15" minY="136" width="120" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="SHf-gi-vdL" firstAttribute="top" secondItem="XxZ-at-UAO" secondAttribute="bottom" id="Hjb-SZ-fMU"/>
                             <constraint firstItem="SHf-gi-vdL" firstAttribute="leading" secondItem="uvI-8u-WB2" secondAttribute="leadingMargin" id="IIh-Pq-8du"/>

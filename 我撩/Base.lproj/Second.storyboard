@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,28 +36,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="QqY-2M-Dwz">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="我撩" id="Nwe-Um-vI0">
-                            <color key="tintColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="Q2D-UL-gtM">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IHg-Vn-VpA">
-                                    <rect key="frame" x="264" y="11" width="40" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_recommend_dish_add"/>
-                                    <connections>
-                                        <action selector="add:" destination="OvI-eR-Uzh" eventType="touchUpInside" id="aLh-o4-6HV"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="0tX-A6-dLQ">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hhM-pT-46V">
-                                    <rect key="frame" x="216" y="10" width="40" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_navigationItem_search"/>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableV" destination="quB-co-WBt" id="s1O-yK-Vkv"/>
@@ -71,11 +48,11 @@
         <!--通讯录-->
         <scene sceneID="j19-Uf-62M">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5sn-v2-P0x" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5sn-v2-P0x" customClass="WLNaviC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="通讯录" id="881-Hp-JEk"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="FDV-FP-b9r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FDV-FP-b9r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -89,8 +66,4 @@
             <point key="canvasLocation" x="1385.625" y="785.91549295774644"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_navigationItem_search" width="24" height="24"/>
-        <image name="icon_recommend_dish_add" width="21" height="21"/>
-    </resources>
 </document>

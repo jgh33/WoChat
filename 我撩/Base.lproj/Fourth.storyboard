@@ -4,18 +4,17 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--我-->
         <scene sceneID="krN-5j-Sd2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wn8-8j-2Ry" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wn8-8j-2Ry" customClass="WLNaviC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="fpb-Hh-Suz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="LNM-cJ-q9o">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LNM-cJ-q9o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -27,23 +26,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYN-B7-kc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1416" y="2097"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="VWw-Z3-eic">
-            <objects>
-                <viewController id="xYD-Va-aP5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pcg-iC-bbb"/>
-                        <viewControllerLayoutGuide type="bottom" id="gFy-Qa-xwq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4M0-wd-kGM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KjZ-od-w6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
         <!--Me TableVC-->
         <scene sceneID="JBH-Fj-zpa">
@@ -231,27 +213,7 @@
                             <outlet property="delegate" destination="JPb-hj-HPf" id="g7o-Zp-asG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="19y-Cd-B4d">
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="IiG-eR-Wq9">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mHA-cb-0el">
-                                    <rect key="frame" x="264" y="11" width="40" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_recommend_dish_add"/>
-                                    <connections>
-                                        <action selector="add:" destination="JPb-hj-HPf" eventType="touchUpInside" id="EqS-W5-rQG"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="gYN-Tx-rvA">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RKT-DL-A13">
-                                    <rect key="frame" x="216" y="10" width="40" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_navigationItem_search"/>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="19y-Cd-B4d"/>
                     <connections>
                         <outlet property="icon" destination="pSR-2K-K3m" id="JB2-ut-Uua"/>
                         <outlet property="id" destination="DBB-X9-WDX" id="2eW-Fh-5KC"/>
@@ -301,7 +263,5 @@
     </scenes>
     <resources>
         <image name="icon_invite_friends_qr" width="300" height="300"/>
-        <image name="icon_navigationItem_search" width="24" height="24"/>
-        <image name="icon_recommend_dish_add" width="21" height="21"/>
     </resources>
 </document>

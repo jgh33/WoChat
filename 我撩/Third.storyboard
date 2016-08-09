@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11133"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -157,30 +156,7 @@
                             <outlet property="delegate" destination="OHV-3o-Jpq" id="ezi-Ia-4RX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="s59-Ed-l2Y">
-                        <barButtonItem key="leftBarButtonItem" title="我撩" id="Oz8-YO-iVs">
-                            <color key="tintColor" red="0.12549019610000001" green="0.71764705880000002" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="agc-nt-CUY">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nEF-mo-Vxg">
-                                    <rect key="frame" x="264" y="11" width="40" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_recommend_dish_add"/>
-                                    <connections>
-                                        <action selector="add:" destination="OHV-3o-Jpq" eventType="touchUpInside" id="GZL-QR-pMg"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="EH2-uS-gcd">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e6Z-yc-O5S">
-                                    <rect key="frame" x="216" y="10" width="40" height="24"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="icon_navigationItem_search"/>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="s59-Ed-l2Y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aF5-Ne-gTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,11 +165,11 @@
         <!--发现-->
         <scene sceneID="6h8-eO-O8O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dcF-1u-vhq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dcF-1u-vhq" customClass="WLNaviC" customModule="我撩" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发现" id="Z4c-Jn-vAZ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="nOW-ha-lJK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nOW-ha-lJK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -207,8 +183,4 @@
             <point key="canvasLocation" x="1386" y="1445"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon_navigationItem_search" width="24" height="24"/>
-        <image name="icon_recommend_dish_add" width="21" height="21"/>
-    </resources>
 </document>

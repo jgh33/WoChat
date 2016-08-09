@@ -102,14 +102,7 @@ class FirstVC: RCConversationListViewController {
     */
     
     // MARK: - ooNavigation
-    @IBAction func add(_ sender: UIButton) {
-        self.adds(sender: sender)
-    }
 
-    @IBAction func search(_ sender: UIButton) {
-    }
-
-    
 
 
 
