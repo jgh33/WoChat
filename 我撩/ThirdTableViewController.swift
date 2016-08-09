@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class ThirdTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +26,10 @@ class ThirdTableViewController: UITableViewController, UIPopoverPresentationCont
     }
     
     @IBAction func add(_ sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "NavigationBar", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
-        vc.modalPresentationStyle = UIModalPresentationStyle.popover
-        vc.popoverPresentationController?.delegate = self
-        vc.popoverPresentationController?.sourceView = sender as UIView
-        vc.popoverPresentationController?.sourceRect = sender.bounds
-        vc.preferredContentSize = CGSize(width: 160, height: 200)
-        
-        self.present(vc, animated: true, completion:nil)
+        self.adds(sender: sender)
     }
     
-    // MARK: - popDelegate
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
+   
 
     
 

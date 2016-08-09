@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeTableVC: UITableViewController, UIPopoverPresentationControllerDelegate{
+class MeTableVC: UITableViewController {
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -31,22 +31,10 @@ class MeTableVC: UITableViewController, UIPopoverPresentationControllerDelegate{
         // Dispose of any resources that can be recreated.
     }
     @IBAction func add(_ sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "NavigationBar", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
-        vc.modalPresentationStyle = UIModalPresentationStyle.popover
-        vc.popoverPresentationController?.delegate = self
-        vc.popoverPresentationController?.sourceView = sender as UIView
-        vc.popoverPresentationController?.sourceRect = sender.bounds
-        vc.preferredContentSize = CGSize(width: 160, height: 200)
-        
-        self.present(vc, animated: true, completion:nil)
+        self.adds(sender: sender)
     }
     
-    // MARK: - popDelegate
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
-
+    
     //二维码名片
     @IBAction func code2D(_ sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Fourth", bundle: nil)
