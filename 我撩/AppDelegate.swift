@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userNickName = DEFAULTS.object(forKey: "userNickName") as? String
         let userPortraitUri = DEFAULTS.object(forKey: "userPortraitUri") as? String
         
-        if (false) {
+        if (true) {
             let currentUserInfo = RCUserInfo(userId: userId, name: userNickName ?? userName, portrait: userPortraitUri)
             RCIM.shared().currentUserInfo = currentUserInfo
             RCIM.shared().connect(withToken: userToken ?? tokenOfA, success: { (userId) -> Void in

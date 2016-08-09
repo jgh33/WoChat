@@ -37,6 +37,12 @@ class ThirdTableViewController: UITableViewController, UIPopoverPresentationCont
         self.present(vc, animated: true, completion:nil)
     }
     
+    // MARK: - popDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    
 
     // MARK: - Table view data source
 

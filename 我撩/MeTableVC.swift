@@ -41,6 +41,12 @@ class MeTableVC: UITableViewController, UIPopoverPresentationControllerDelegate{
         
         self.present(vc, animated: true, completion:nil)
     }
+    
+    // MARK: - popDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
     //二维码名片
     @IBAction func code2D(_ sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Fourth", bundle: nil)

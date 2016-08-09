@@ -35,6 +35,15 @@ class SecondVC: UIViewController, UIPopoverPresentationControllerDelegate,UITabl
         
         self.present(vc, animated: true, completion:nil)
     }
+    
+    // MARK: - popDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 29
     }
