@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		88238DF59F9E5593557734A4 /* Pods___.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210A93ABD7CAACBDD150F924 /* Pods___.framework */; };
 		D52B61381D59ADE400F33388 /* WLNaviC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52B61371D59ADE400F33388 /* WLNaviC.swift */; };
+		D52B613A1D5A37C900F33388 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52B61391D5A37C900F33388 /* NetManager.swift */; };
 		D55B5CD61D4C55C000F06D41 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55B5CD51D4C55C000F06D41 /* First.storyboard */; };
 		D55B5CD91D4C55E400F06D41 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55B5CD71D4C55E400F06D41 /* Second.storyboard */; };
 		D55B5CDB1D4C560D00F06D41 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55B5CDA1D4C560D00F06D41 /* Third.storyboard */; };
@@ -35,6 +36,7 @@
 		BF5ABC3F48C50BA164EE178F /* Pods-我撩.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-我撩.release.xcconfig"; path = "Pods/Target Support Files/Pods-我撩/Pods-我撩.release.xcconfig"; sourceTree = "<group>"; };
 		C6DF2A06C1AA4C28CE0DEF20 /* Pods-我撩.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-我撩.debug.xcconfig"; path = "Pods/Target Support Files/Pods-我撩/Pods-我撩.debug.xcconfig"; sourceTree = "<group>"; };
 		D52B61371D59ADE400F33388 /* WLNaviC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLNaviC.swift; sourceTree = "<group>"; };
+		D52B61391D5A37C900F33388 /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
 		D55B5CD51D4C55C000F06D41 /* First.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = First.storyboard; sourceTree = "<group>"; };
 		D55B5CD81D4C55E400F06D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		D55B5CDA1D4C560D00F06D41 /* Third.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Third.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				D566EFD41D4B634F00B1D100 /* AppDelegate.swift */,
 				D566EFD81D4B634F00B1D100 /* Main.storyboard */,
+				D52B61391D5A37C900F33388 /* NetManager.swift */,
 				D5A462411D4DEE7D000EBC81 /* First */,
 				D5A462441D4DEF2E000EBC81 /* Second */,
 				D5A462421D4DEEAB000EBC81 /* Third */,
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D52B61381D59ADE400F33388 /* WLNaviC.swift in Sources */,
+				D52B613A1D5A37C900F33388 /* NetManager.swift in Sources */,
 				D566EFED1D4B723F00B1D100 /* ChatVC.swift in Sources */,
 				D566EFF31D4B9FE400B1D100 /* SignVC.swift in Sources */,
 				D566EFEB1D4B6DDF00B1D100 /* FirstVC.swift in Sources */,

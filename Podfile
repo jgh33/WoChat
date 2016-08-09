@@ -7,5 +7,6 @@ target '我撩' do
 
   # Pods for 我撩
 pod 'RongCloudIMKit', '~> 2.6.8'
+pod 'AFNetworking', '~> 3.1.0'
 
 end

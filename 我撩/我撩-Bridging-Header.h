@@ -2,7 +2,8 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import <RongIMKit/RongIMKit.h>
+#import "RongIMKit/RongIMKit.h"
+#import "AFNetworking/AFNetworking.h"
 
 
 #define appkey @"8w7jv4qb77z8y"
