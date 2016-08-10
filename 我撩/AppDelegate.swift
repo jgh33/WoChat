@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 let DEFAULTS = UserDefaults.standard
 //let RCDDataSource = RCDRCIMDataSource.share
 
@@ -130,15 +131,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCIMConnectionStatusDeleg
     
     //MARK:- RongCloudDelegate
     func getUserInfo(withUserId userId: String!, completion: ((RCUserInfo?) -> Void)!) {
-        <#code#>
+        print("getUserInfoWithUserId ----- \(userId)")
+        if userId.characters.count == 0 {
+            let userInfo = RCUserInfo(userId: userId, name: "", portrait: "")
+            completion(userInfo)
+            return
+        }else if userId == "kefu114"{
+            let userInfo = RCUserInfo(userId: userId, name: "客服", portrait: "")
+            completion(userInfo)
+            return
+        }
+        
+        //开发者调自己的服务器接口根据userID异步请求数据
+        
     }
     
     func getGroupInfo(withGroupId groupId: String!, completion: ((RCGroup?) -> Void)!) {
-        <#code#>
+        
     }
     
     func getAllMembers(ofGroup groupId: String!, result resultBlock: (([String]?) -> Void)!) {
-        <#code#>
+        
     }
     
     //MARK:- RCIMConnectionStatusDelegate
@@ -216,6 +229,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCIMConnectionStatusDeleg
         if message.content.isMember(of: RCGroupNotificationMessage.self) {
             return true
         }
+        return true
     }
 
 
