@@ -46,7 +46,7 @@ class WLNaviC: UINavigationController, UIPopoverPresentationControllerDelegate {
     }
     
     func addPopView(sender: UIButton) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "NavigationBar", bundle: nil)
+        let storyboard = UIStoryboard(name: "NavigationBar", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PopoverViewController")
         vc.modalPresentationStyle = UIModalPresentationStyle.popover
         vc.popoverPresentationController?.delegate = self

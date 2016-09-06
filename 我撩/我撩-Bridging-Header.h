@@ -4,6 +4,7 @@
 
 #import "RongIMKit/RongIMKit.h"
 #import "AFNetworking/AFNetworking.h"
+#import "AFNetworking/NSURLSession/AFHTTPSessionManager.h"
 
 
 #define appkey @"8w7jv4qb77z8y"

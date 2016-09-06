@@ -23,6 +23,11 @@ class NetManager {
         case requestMethodTypeGet
     }
     
+    enum ResponseData {
+        case result(String)
+        case failure(String)
+    }
+    
     /**
      *  发送一个请求
      *
@@ -32,610 +37,265 @@ class NetManager {
      *  @param success 请求成功后的回调（请将请求成功后想做的事情写到这个block中）
      *  @param failure 请求失败后的回调（请将请求失败后想做的事情写到这个block中）
      */
-    class func request(wihtMethod methodType: RequestMethodType, urlStr: String, params: [String : AnyObject], success: ((AnyObject) -> Void), failure: ((NSError) -> Void)) {
-        let baseURL = URL(string: ServerURL)!
-        //获得请求管理者
-        let mangaer = AFHTTPRequestOperationManager()////////////////////////////////
-        
-        manag
+    class func request(wihtMethod methodType: RequestMethodType, urlStr: String, params: [String : AnyObject], success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)) {
+        let baseURLs = URL(string: ServerURL)!
         
     }
-    + (void)requestWihtMethod:(RequestMethodType)methodType
-    url:(NSString *)url
-    params:(NSDictionary *)params
-    success:(void (^)(id response))success
-    failure:(void (^)(NSError *err))failure {
-    NSURL *baseURL = [NSURL URLWithString:DemoServer];
-    //获得请求管理者
-    AFHTTPRequestOperationManager *mgr =
-    [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     
-    #ifdef ContentType
-    mgr.responseSerializer.acceptableContentTypes =
-    [NSSet setWithObject:ContentType];
-#endif
-mgr.requestSerializer.HTTPShouldHandleCookies = YES;
 
-NSString *cookieString =
-    [[NSUserDefaults standardUserDefaults] objectForKey:@"UserCookies"];
-
-if (cookieString)
-[mgr.requestSerializer setValue:cookieString forHTTPHeaderField:@"Cookie"];
-
-url = [url stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-switch (methodType) {
-case RequestMethodTypeGet: {
-    // GET请求
-    [mgr GET:url
-        parameters:params
-        success:^(AFHTTPRequestOperation *operation,
-        NSDictionary *responseObj) {
-        if (success) {
+    // check phone available
+    class func checkPhoneNumberAvailable(region: String, number: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
         
-        success(responseObj);
-        }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
-        failure(error);
-        }
-        }];
-    
-} break;
-    
-case RequestMethodTypePost: {
-    // POST请求
-    [mgr POST:url
-        parameters:params
-        success:^(AFHTTPRequestOperation *operation,
-        NSDictionary *responseObj) {
-        if (success) {
-        if ([url isEqualToString:@"user/login"]) {
-        NSString *cookieString = [[operation.response allHeaderFields]
-        valueForKey:@"Set-Cookie"];
-        NSMutableString *finalCookie = [NSMutableString new];
-        //                      NSData *data = [NSKeyedArchiver
-        //                      archivedDataWithRootObject:cookieString];
-        NSArray *cookieStrings =
-        [cookieString componentsSeparatedByString:@","];
-        for (NSString *temp in cookieStrings) {
-        NSArray *tempArr = [temp componentsSeparatedByString:@";"];
-        [finalCookie
-        appendString:[NSString
-        stringWithFormat:@"%@;", tempArr[0]]];
-        }
-        [[NSUserDefaults standardUserDefaults] setObject:finalCookie
-        forKey:@"UserCookies"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-        success(responseObj);
-        }
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (failure) {
-        failure(error);
-        }
-        }];
-} break;
-default:
-    break;
-}
-}
-
-// check phone available
-+ (void)checkPhoneNumberAvailable:(NSString *)region
-phoneNumber:(NSString *)phoneNumber
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"region" : region, @"phone" : phoneNumber };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/check_phone_available"
-    params:params
-    success:success
-    failure:failure];
     }
+
+    
     
     // get verification code
-    + (void)getVerificationCode:(NSString *)region
-phoneNumber:(NSString *)phoneNumber
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"region" : region, @"phone" : phoneNumber };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/send_code"
-    params:params
-    success:success
-    failure:failure];
+    class func getVerificationCode(region: String, number: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)) {
+        <#function body#>
     }
+    
+    
     
     // verfify verification code
-    + (void)verifyVerificationCode:(NSString *)region
-phoneNumber:(NSString *)phoneNumber
-verificationCode:(NSString *)verificationCode
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"region" : region,
-        @"phone" : phoneNumber,
-        @"code" : verificationCode
-    };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/verify_code"
-    params:params
-    success:success
-    failure:failure];
+    class func verifyVerificationCode(region: String, number: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // reg nickname password verficationToken
-    + (void)registerWithNickname:(NSString *)nickname
-password:(NSString *)password
-verficationToken:(NSString *)verficationToken
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"nickname" : nickname,
-        @"password" : password,
-        @"verification_token" : verficationToken
-    };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/register"
-    params:params
-    success:success
-    failure:failure];
+    class func register(withNickname nickname: String, password: String, verficationToken: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // login
-    + (void)loginWithPhone:(NSString *)phone
-password:(NSString *)password
-region:(NSString *)region
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"region" : region,
-        @"phone" : phone,
-        @"password" : password
-    };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/login"
-    params:params
-    success:success
-    failure:failure];
+    class func login(withPhoneNumber number:String, password: String, region: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)) {
+        <#function body#>
     }
+
+    
     
     // modify nickname
-    + (void)modifyNickname:(NSString *)userId
-nickname:(NSString *)nickname
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"nickname" : nickname };
-    
-    [AFHttpTool
-        requestWihtMethod:RequestMethodTypePost
-        url:[NSString
-        stringWithFormat:@"/user/set_nickname?userId=%@",
-        userId]
-        params:params
-        success:success
-        failure:failure];
+    class func modifyNickname(userId: String, nickname: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // change password
-    + (void)changePassword:(NSString *)oldPwd
-newPwd:(NSString *)newPwd
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"oldPassword" : oldPwd, @"newPassword" : newPwd };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/change_password"
-    params:params
-    success:success
-    failure:failure];
+    class func changePassword(oldPwd: String, newPwd: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
     
     // reset password
-    + (void)resetPassword:(NSString *)password
-vToken:(NSString *)verification_token
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"password" : password,
-        @"verification_token" : verification_token
-    };
-    
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/reset_password"
-    params:params
-    success:success
-    failure:failure];
+    class func resetPassword(password: String, vToken: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // get user info
-    + (void)getUserInfo:(NSString *)userId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:[NSString stringWithFormat:@"user/%@", userId]
-        params:nil
-        success:success
-        failure:failure];
+    class func getUserInfo(userId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // set user portraitUri
-    + (void)setUserPortraitUri:(NSString *)portraitUrl
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"portraitUri" : portraitUrl };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/set_portrait_uri"
-    params:params
-    success:success
-    failure:failure];
+    class func setUserPortraitUri(portraitUri: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+
+    
     
     // invite user
-    + (void)inviteUser:(NSString *)userId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"friendId" : userId,
-        @"message" : [NSString stringWithFormat:@"I am %@", userId]
-    };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"friendship/invite"
-    params:params
-    success:success
-    failure:failure];
+    class func inviteUser(uiserId: String,  success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // find user by phone
-    + (void)findUserByPhone:(NSString *)Phone
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool
-        requestWihtMethod:RequestMethodTypeGet
-        url:[NSString stringWithFormat:@"user/find/86/%@", Phone]
-        params:nil
-        success:success
-        failure:failure];
+    class func findUser(byPhoneNumber number: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+
+    
     
     // get token
-    + (void)getTokenSuccess:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"user/get_token"
-    params:nil
-    success:success
-    failure:failure];
+    class func getToken(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
     
     // get friends
-    + (void)getFriendsSuccess:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    //获取包含自己在内的全部注册用户数据
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"friends"
-    params:nil
-    success:success
-    failure:failure];
+    class func getFriends(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // get upload image token
-    + (void)getUploadImageTokensuccess:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"user/get_image_token"
-    params:nil
-    success:success
-    failure:failure];
+    class func getUploadImageToken(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
     
     // upload file
-    + (void)uploadFile:(NSData *)fileData
-userId:(NSString *)userId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool getUploadImageTokensuccess:^(id response) {
-        if ([response[@"code"] integerValue] == 200) {
-        NSDictionary *result = response[@"result"];
-        NSString *defaultDomain = result[@"domain"];
-        [DEFAULTS setObject:defaultDomain forKey:@"QiNiuDomain"];
-        [DEFAULTS synchronize];
+    class func uploadFile( fileData:Data, userId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
         
-        //设置七牛的Token
-        NSString *token = result[@"token"];
-        NSMutableDictionary *params = [NSMutableDictionary new];
-        [params setValue:token forKey:@"token"];
-        
-        //获取系统当前的时间戳
-        NSDate *dat = [NSDate dateWithTimeIntervalSinceNow:0];
-        NSTimeInterval now = [dat timeIntervalSince1970] * 1000;
-        NSString *timeString = [NSString stringWithFormat:@"%f", now];
-        NSString *key = [NSString stringWithFormat:@"%@%@", userId, timeString];
-        //去掉字符串中的.
-        NSMutableString *str = [NSMutableString stringWithString:key];
-        for (int i = 0; i < str.length; i++) {
-        unichar c = [str characterAtIndex:i];
-        NSRange range = NSMakeRange(i, 1);
-        if (c == '.') { //此处可以是任何字符
-        [str deleteCharactersInRange:range];
-        --i;
-        }
-        }
-        key = [NSString stringWithString:str];
-        [params setValue:key forKey:@"key"];
-        
-        NSMutableDictionary *ret = [NSMutableDictionary dictionary];
-        [params addEntriesFromDictionary:ret];
-        
-        NSString *url = @"http://upload.qiniu.com";
-        
-        NSData *imageData = fileData;
-        
-        AFHTTPRequestOperationManager *manager =
-        [AFHTTPRequestOperationManager manager];
-        [manager POST:url
-        parameters:params
-        constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:imageData
-        name:@"file"
-        fileName:key
-        mimeType:@"application/octet-stream"];
-        }
-        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(responseObject);
-        }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
-        }];
-        }
-        }
-        failure:^(NSError *err){
-        
-        }];
     }
+
+    
+    
     
     // get square info
-    + (void)getSquareInfoSuccess:(void (^)(id response))success
-Failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"misc/demo_square"
-    params:nil
-    success:success
-    failure:failure];
+    class func getSqusreInfo(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // create group
-    + (void)createGroupWithGroupName:(NSString *)groupName
-groupMemberList:(NSArray *)groupMemberList
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"name" : groupName,
-        @"memberIds" : groupMemberList
-    };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/create"
-    params:params
-    success:success
-    failure:failure];
+    class func createGroup(withGroupName name: String, groupMemberList: [String], success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
     
-    + (void)getMyGroupsSuccess:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"user/groups"
-    params:nil
-    success:success
-    failure:failure];
+    
+    
+
+    
+    // get my groups
+    class func getMyGroups(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
-    
     // get group by id
-    + (void)getGroupByID:(NSString *)groupID
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:[NSString stringWithFormat:@"group/%@", groupID]
-        params:nil
-        success:success
-        failure:failure];
+    class func getGroup(byId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
+   
+    
+    
     
     // set group portraitUri
-    + (void)setGroupPortraitUri:(NSString *)portraitUrl
-groupId:(NSString *)groupId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{
-        @"groupId" : groupId,
-        @"portraitUri" : portraitUrl
-    };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/set_portrait_uri"
-    params:params
-    success:success
-    failure:failure];
+    class func setGroupPortraitUri(portraitUri: String, groupid: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // get group members by id
-    + (void)getGroupMembersByID:(NSString *)groupID
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool
-        requestWihtMethod:RequestMethodTypeGet
-        url:[NSString stringWithFormat:@"group/%@/members", groupID]
-        params:nil
-        success:success
-        failure:failure];
+    class func getGroupMembers(byId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // join group by groupId
-    + (void)joinGroupWithGroupId:(NSString *)groupID
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/join"
-    params:params
-    success:success
-    failure:failure];
+    class func joinGroup(withGroupId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // add users into group
-    + (void)addUsersIntoGroup:(NSString *)groupID
-usersId:(NSMutableArray *)usersId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID, @"memberIds" : usersId };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/add"
-    params:params
-    success:success
-    failure:failure];
+    class func addUsersIntoGroup(groupId: String, usersId: [String], success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
+    
     
     // kick users out of group
-    + (void)kickUsersOutOfGroup:(NSString *)groupID
-usersId:(NSMutableArray *)usersId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID, @"memberIds" : usersId };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/kick"
-    params:params
-    success:success
-    failure:failure];
+    class func kickUsersOutofGroup(groupId: String, usersId: [String], success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+
+    
+    
     
     // quit group with groupId
-    + (void)quitGroupWithGroupId:(NSString *)groupID
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/quit"
-    params:params
-    success:success
-    failure:failure];
+    class func quitGroup(withGroupId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
     
     // dismiss group with groupId
-    + (void)dismissGroupWithGroupId:(NSString *)groupID
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/dismiss"
-    params:params
-    success:success
-    failure:failure];
+    class func dismissGroup(withGroupId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
+    
     
     // rename group with groupId
-    + (void)renameGroupWithGroupId:(NSString *)groupID
-GroupName:(NSString *)groupName
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"groupId" : groupID, @"name" : groupName };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"group/rename"
-    params:params
-    success:success
-    failure:failure];
+    class func renameGroup(withGroupId groupId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
     
-    + (void)getFriendListFromServerSuccess:(void (^)(id))success
-failure:(void (^)(NSError *))failure {
-    //获取除自己之外的好友信息
-    [AFHttpTool
-        requestWihtMethod:RequestMethodTypeGet
-        url:[NSString stringWithFormat:@"friendship/all"]
-        params:nil
-        success:success
-        failure:failure];
+    //
+    class func getFriendListFromSever(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
     
-    + (void)processInviteFriendRequest:(NSString *)friendUserId
-currentUseId:(NSString *)currentUserId
-time:(NSString *)now
-success:(void (^)(id))success
-failure:(void (^)(NSError *))failure {
-    NSDictionary *params = @{
-        @"friendId" : friendUserId,
-        @"currentUserId" : currentUserId,
-        @"time" : now
-    };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"agree"
-    params:params
-    success:success
-    failure:failure];
+    class func processInviteFriendRequest(friendUserId: String, currentUserId: String, time now: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
     
-    + (void)processInviteFriendRequest:(NSString *)friendUserId
-success:(void (^)(id))success
-failure:(void (^)(NSError *))failure {
-    NSDictionary *params = @{ @"friendId" : friendUserId };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"friendship/agree"
-    params:params
-    success:success
-    failure:failure];
+    
+    class func processInviteFriendRequest(friendUserId: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
+   
+    
+    
     
     //加入黑名单
-    + (void)addToBlacklist:(NSString *)userId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"friendId" : userId };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/add_to_blacklist"
-    params:params
-    success:success
-    failure:failure];
+    class func addToBlacklist(userId: String,  success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
+    
     
     //从黑名单中移除
-    + (void)removeToBlacklist:(NSString *)userId
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    NSDictionary *params = @{ @"friendId" : userId };
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"user/remove_from_blacklist"
-    params:params
-    success:success
-    failure:failure];
+    class func removeToBlacklist(userId: String,  success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
+    
+    
     
     //获取黑名单列表
-    + (void)getBlacklistsuccess:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypeGet
-        url:@"user/blacklist"
-    params:nil
-    success:success
-    failure:failure];
+    class func getBlacklist(success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
     
+    
+    
     //讨论组接口，暂时保留
-    + (void)updateName:(NSString *)userName
-success:(void (^)(id response))success
-failure:(void (^)(NSError *err))failure {
-    [AFHttpTool requestWihtMethod:RequestMethodTypePost
-        url:@"update_profile"
-    params:@{
-        @"username" : userName
+    class func updateName(userName: String,  success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)){
+        
     }
-    success:success
-    failure:failure];
-}
-
 
 
 

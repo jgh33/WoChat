@@ -17,18 +17,49 @@ struct RCDataManager {
         
     }
     
-    func createGroup(withGroupName groupName:String, groupMemberList:[], completeion:((String) -> Void))  {
-//        NetManager.createGroup(wi)
+    
+    //创建群
+    func createGroup(withGroupName groupName:String, groupMemberList:[String], completeion userId:((String?) -> Void))  {
+        NetManager.createGroup(withGroupName: groupName, groupMemberList: groupMemberList, success: { (response) in
+            let code = response["code"] as? UInt
+            if code == 200{
+                let result = response["result"] as? NSDictionary
+                userId(result["id"] as? String)
+            }else{
+                userId(nil)
+            }
+            }) { (err) in
+                userId(nil)
+        }
     }
     
     //设置群组头像
-    func setGroup(portraitUri: String, groupId: String, completeion: (() -> Void) )  {
-        <#function body#>
+    func setGroupPortraitUri(portraitUri: String, groupId: String, completeion result: ((Bool) -> Void) )  {
+        NetManager.setGroupPortraitUri(portraitUri: portraitUri, groupid: groupId, success: { (response) in
+            let code = response["code"] as? UInt
+            if code == 200{
+                result(true)
+            }else{
+                result(false)
+            }
+        }) { (err) in
+            result(false)
+        }
     }
     
     //根据id获取单个群组
-    func getGroup(byGroupId groupId:String, success:((RCDGroupInfo) -> Void)) {
-        <#function body#>
+    func getGroup(byGroupId groupId:String, success completion:((RCDGroupInfo) -> Void)) {
+        NetManager.getGroup(byId: groupId, success: { (response) in
+            let code = response["code"] as? UInt
+            let result = response["result"] as? NSDictionary
+            if result != nil && code == 200 {
+                let group = RCDGroupInfo()
+                group.groupId = result?.object(forKey: "id")
+                group.groupName = result?.object(forKey: "name")
+                group.portraitUri = result?.object(forKey: "portraitUri")
+                if 
+            }
+            }, failure: <#T##((NSError) -> Void)##((NSError) -> Void)##(NSError) -> Void#>)
     }
     
     //根据userId获取单个用户信息
