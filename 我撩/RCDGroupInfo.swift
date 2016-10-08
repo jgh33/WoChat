@@ -10,7 +10,8 @@ import Foundation
 
 let keyRCDGroupInfoNumber = "number"
 
-class RCDGroupInfo: RCGroup, NSCoding {
+class RCDGroupInfo: RCGroup//, NSCoding
+{
     //人数
     var number: String?
     
@@ -34,14 +35,14 @@ class RCDGroupInfo: RCGroup, NSCoding {
     var isJoin = false
     
     required init?(coder aDecoder: NSCoder) {
-        super.init?(coder: aDecoder)
-        guard let number = aDecoder.decodeObject(forKey: keyRCDGroupInfoNumber) else {
-            
+        super.init(coder: aDecoder)
+        guard aDecoder.decodeObject(forKey: keyRCDGroupInfoNumber) != nil else {
+            return
         }
     }
     
     override func encode(with aCoder: NSCoder) {
-        super.encode(aCoder)
+        super.encode(with: aCoder)
         aCoder.encode(self.number, forKey: keyRCDGroupInfoNumber)
     }
     

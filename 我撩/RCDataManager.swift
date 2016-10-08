@@ -9,8 +9,8 @@
 import Foundation
 
 struct RCDataManager {
-    var allFriends = []()
-    var allGroups = []()
+    var allFriends:[String] = []
+    var allGroups:[String] = []
     
     static let share = RCDataManager()
     private init(){
@@ -24,7 +24,7 @@ struct RCDataManager {
             let code = response["code"] as? UInt
             if code == 200{
                 let result = response["result"] as? NSDictionary
-                userId(result["id"] as? String)
+                userId(result?["id"] as? String)
             }else{
                 userId(nil)
             }
@@ -46,7 +46,7 @@ struct RCDataManager {
             result(false)
         }
     }
-    
+/*
     //根据id获取单个群组
     func getGroup(byGroupId groupId:String, success completion:((RCDGroupInfo) -> Void)) {
         NetManager.getGroup(byId: groupId, success: { (response) in
@@ -57,7 +57,7 @@ struct RCDataManager {
                 group.groupId = result?.object(forKey: "id")
                 group.groupName = result?.object(forKey: "name")
                 group.portraitUri = result?.object(forKey: "portraitUri")
-                if 
+                
             }
             }, failure: <#T##((NSError) -> Void)##((NSError) -> Void)##(NSError) -> Void#>)
     }
@@ -179,7 +179,7 @@ struct RCDataManager {
     }
     
     
-    
+*/    
     
     
     

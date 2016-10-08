@@ -15,7 +15,7 @@ class FirstVC: RCConversationListViewController {
 
         // Do any additional setup after loading the view.
         
-        self.cellBackgroundColor = UIColor.white()
+        self.cellBackgroundColor = UIColor.white
         self.topCellBackgroundColor = #colorLiteral(red: 0.7602152824, green: 0.7601925135, blue: 0.7602053881, alpha: 1)
         //设置需要显示哪些类型的会话
         self.setDisplayConversationTypes([RCConversationType.ConversationType_PRIVATE.rawValue,

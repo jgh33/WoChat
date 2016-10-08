@@ -52,7 +52,7 @@ class NetManager {
     
     // get verification code
     class func getVerificationCode(region: String, number: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)) {
-        <#function body#>
+        
     }
     
     
@@ -73,7 +73,7 @@ class NetManager {
     
     // login
     class func login(withPhoneNumber number:String, password: String, region: String, success: (([String : AnyObject]) -> Void), failure: ((NSError) -> Void)) {
-        <#function body#>
+        
     }
 
     

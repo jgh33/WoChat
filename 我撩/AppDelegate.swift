@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCIMConnectionStatusDeleg
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //状态栏设置白色
-        UIApplication.shared().statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .lightContent
         //初始化融云SDK
         RCIM.shared().initWithAppKey(appkey)
         //注册自定义消息

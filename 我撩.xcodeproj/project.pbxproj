@@ -39,6 +39,7 @@
 		C6DF2A06C1AA4C28CE0DEF20 /* Pods-我撩.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-我撩.debug.xcconfig"; path = "Pods/Target Support Files/Pods-我撩/Pods-我撩.debug.xcconfig"; sourceTree = "<group>"; };
 		D52B61371D59ADE400F33388 /* WLNaviC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WLNaviC.swift; sourceTree = "<group>"; };
 		D52B61391D5A37C900F33388 /* NetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		D534E90F1DA8949E00DB2620 /* 我撩.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "我撩.entitlements"; sourceTree = "<group>"; };
 		D55B4F101D5B92AD00DC400E /* RCDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCDataManager.swift; sourceTree = "<group>"; };
 		D55B5CD51D4C55C000F06D41 /* First.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = First.storyboard; sourceTree = "<group>"; };
 		D55B5CD81D4C55E400F06D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		D566EFD31D4B634F00B1D100 /* 我撩 */ = {
 			isa = PBXGroup;
 			children = (
+				D534E90F1DA8949E00DB2620 /* 我撩.entitlements */,
 				D566EFD41D4B634F00B1D100 /* AppDelegate.swift */,
 				D5A951E81D60E595003B3EC4 /* RCDGroupInfo.swift */,
 				D566EFD81D4B634F00B1D100 /* Main.storyboard */,
@@ -227,10 +229,15 @@
 				TargetAttributes = {
 					D566EFD01D4B634F00B1D100 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 2L8683256Z;
+						DevelopmentTeam = U28X3G4N5K;
 						DevelopmentTeamName = "国辉 焦 (Personal Team)";
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -482,10 +489,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "我撩/我撩.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guohui Jiao (L5PD9HD23P)";
+				DEVELOPMENT_TEAM = U28X3G4N5K;
 				INFOPLIST_FILE = "我撩/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scau.jgh.--";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scau.jgh.wochat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4850c8eb-c207-46f9-acb4-40ca7caecead";
+				PROVISIONING_PROFILE_SPECIFIER = "WoChat-p";
 				SWIFT_OBJC_BRIDGING_HEADER = "我撩/我撩-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -498,10 +510,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "我撩/我撩.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guohui Jiao (L5PD9HD23P)";
+				DEVELOPMENT_TEAM = U28X3G4N5K;
 				INFOPLIST_FILE = "我撩/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scau.jgh.--";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scau.jgh.wochat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4850c8eb-c207-46f9-acb4-40ca7caecead";
+				PROVISIONING_PROFILE_SPECIFIER = "WoChat-p";
 				SWIFT_OBJC_BRIDGING_HEADER = "我撩/我撩-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
